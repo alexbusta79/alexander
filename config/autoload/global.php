@@ -13,7 +13,9 @@
 return array(
     'db' => array(
         'driver'         => 'Pdo',
-        'dsn'            => 'mysql:dbname=kristins_serviceticket;host=shreous.com',
+        'dsn'            => 'mysql:dbname=kristins_serviceticket;host=localhost',
+        'username' => 'root',
+        'password' => 'alex79',
         'driver_options' => array(
             PDO::MYSQL_ATTR_INIT_COMMAND => 'SET NAMES \'UTF8\''
         ),

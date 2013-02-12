@@ -13,7 +13,7 @@ class ServiceTicketController extends AbstractActionController
 public function indexAction()
     {
         return new ViewModel(array(
-            'albums' => $this->getServiceTicketTable()->fetchAll(),
+            'serviceticket' => $this->getServiceTicketTable()->fetchAll(),
         ));
     }
 

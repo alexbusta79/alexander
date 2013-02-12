@@ -15,7 +15,7 @@ return array(
                 'options' => array(
                     'route'    => '/',
                     'defaults' => array(
-                        'controller' => 'Kristins\Controller\Kristins',
+                        'controller' => 'Kristins\Controller\ServiceTicket',
                         'action'     => 'index',
                     ),
                 ),

@@ -41,23 +41,23 @@ class Module
     						return $table;
     					},
     					'AlbumTableGateway' => function ($sm) {
-    						// $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
+    						 $dbAdapter = $sm->get('Zend\Db\Adapter\Adapter');
     					
     						
-    						$adapter = new \Zend\Db\Adapter\Adapter(array(
-    								'driver' => 'Pdo_Mysql',
-    								'host'	=> 'shreous.com',
-    								'database' => 'kristins_serviceticket',
-    								'username' => 'kristins_rwst',
-    								'password' => 'ZendRest2013'
-    						));
+//     						$adapter = new \Zend\Db\Adapter\Adapter(array(
+//     								'driver' => 'Pdo_Mysql',
+//     								'host'	=> 'shreous.com',
+//     								'database' => 'kristins_serviceticket',
+//     								'username' => 'kristins_rwst',
+//     								'password' => 'ZendRest2013'
+//     						));
     						
     					//	$adapter = new Zend\Db\Adapter\Adapter($adapter);
     					//	var_dump($adapter); exit();
     						
     						$resultSetPrototype = new ResultSet();
     						$resultSetPrototype->setArrayObjectPrototype(new ServiceTicket());
-    						return new TableGateway('ServiceTicket', $adapter, null, $resultSetPrototype);
+    						return new TableGateway('serviceticket', $dbAdapter, null, $resultSetPrototype);
     					},
     			),
     	);

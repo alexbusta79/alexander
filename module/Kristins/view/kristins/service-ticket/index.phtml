@@ -1,0 +1,59 @@
+<?php
+$title = 'My ServiceTicket';
+$this->headTitle($title);
+?>
+<h1><?php echo $this->escapeHtml($title); ?></h1>
+<p>
+    <a href="<?php echo $this->url('kristins', array('action'=>'add'));?>">Add new ServiceTicket</a>
+</p>
+
+<table class="table">
+<tr>
+    <th>ServiceTicketNo</th>
+    <th>ServiceDate</th>
+    <th>SalesMan</th>
+        <th>TruckNo</th>
+    <th>PaymentTerms</th>
+    <th>BillToName</th>
+        <th>BillToAddress</th>
+    <th>BillToCity</th>
+    <th>BillToState</th>
+        <th>BillToZip</th>
+    <th>BillToContact</th>
+    <th>BillToEmail</th>
+        <th>ShipToName</th>
+    <th>ShipToAddress</th>
+    <th>ShipToCity</th>
+        <th>&nbsp;</th>
+</tr>
+<?php 
+
+foreach ($serviceticket as $values) : 
+
+?>
+<tr>
+    <td><?php echo $this->escapeHtml($values->serviceTicketNo);?></td>
+    <td><?php echo $this->escapeHtml($values->serviceDate);?></td>
+        <td><?php echo $this->escapeHtml($values->salesMan);?></td>
+        <td><?php echo $this->escapeHtml($values->truckNo);?></td>
+    <td><?php echo $this->escapeHtml($values->paymentTerms);?></td>
+        <td><?php echo $this->escapeHtml($values->billToName);?></td>
+    <td><?php echo $this->escapeHtml($values->billToAddress);?></td>
+        <td><?php echo $this->escapeHtml($values->billToCity);?></td>
+    <td><?php echo $this->escapeHtml($values->billToState);?></td>
+        <td><?php echo $this->escapeHtml($values->billToZip);?></td>
+    <td><?php echo $this->escapeHtml($values->billToContact);?></td>
+        <td><?php echo $this->escapeHtml($values->billToEmail);?></td>
+    <td><?php echo $this->escapeHtml($values->shipToName);?></td>
+        <td><?php echo $this->escapeHtml($values->shipToAddress);?></td>
+    <td><?php echo $this->escapeHtml($values->shipToCity);?></td>
+    
+    <td>
+        <a href="<?php echo $this->url('kristins',
+            array('action'=>'edit', 'id' => $values->serviceTicketNo));?>">Edit</a>
+        <a href="<?php echo $this->url('kristins',
+            array('action'=>'delete', 'id' => $values->serviceTicketNo));?>">Delete</a>
+    </td>
+</tr>
+<?php endforeach; ?>
+</table>
