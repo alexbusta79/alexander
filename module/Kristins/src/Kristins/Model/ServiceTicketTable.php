@@ -20,7 +20,6 @@ class ServiceTicketTable
 
     public function getServiceTicket($id)
     {
-        $id  = (int) $id;
         $rowset = $this->tableGateway->select(array('ServiceTicketNo' => $id));
         $row = $rowset->current();
         if (!$row) {
@@ -29,56 +28,56 @@ class ServiceTicketTable
         return $row;
     }
 
-    public function saveServiceTicket(ServiceTicket $serviceTicket)
+    public function saveServiceTicket(ServiceTicket $serviceTicket,$id)
     {
         $data = array(
-            'ServiceTicketNo' => $serviceTicket->ServiceTicketNo,
-            'ServiceDate'  => $serviceTicket->ServiceDate,
-        		'SalesMan' => $serviceTicket->SalesMan,
-        		'TruckNo'  => $serviceTicket->TruckNo,
-        		'PaymentTerms' => $serviceTicket->PaymentTerms,
-        		'BillToName'  => $serviceTicket->BillToName,
-        		'BillToAddress' => $serviceTicket->BillToAddress,
-        		'BillToCity'  => $serviceTicket->BillToCity,
-        		'BillToState' => $serviceTicket->BillToState,
-        		'BillToZip'  => $serviceTicket->BillToZip,
-        		'BillToContact' => $serviceTicket->BillToContact,
-        		'BillToEmail'  => $serviceTicket->BillToEmail,
-        		'ShipToName' => $serviceTicket->ShipToName,
-        		'ShipToAddress'  => $serviceTicket->ShipToAddress,
-        		'ShipToCity' => $serviceTicket->ShipToCity,
-        		'ShipToState'  => $serviceTicket->ShipToState,
-        		'ShipToZip' => $serviceTicket->ShipToZip,
-        		'ShipToContact'  => $serviceTicket->ShipToContact,
-        		'PONumber' => $serviceTicket->PONumber,
-        		'Model'  => $serviceTicket->Model,
-        		'Brand' => $serviceTicket->Brand,
-        		'PullType'  => $serviceTicket->PullType,
-        		'DetectorType' => $serviceTicket->DetectorType,
-        		'AVType'  => $serviceTicket->AVType,
-        		'ServicePeformed' => $serviceTicket->ServicePeformed,
-        		'InternalNotes'  => $serviceTicket->InternalNotes,
-        		'MileageCharge' => $serviceTicket->MileageCharge,
-        		'ServiceCharge'  => $serviceTicket->ServiceCharge,
-        		'SalesTax' => $serviceTicket->SalesTax,
-        		'LeadTechnicianNo'  => $serviceTicket->LeadTechnicianNo,
-        		'CustomerNo' => $serviceTicket->CustomerNo,
-        		'PrintName'  => $serviceTicket->PrintName,
-        		'FreightCharge' => $serviceTicket->FreightCharge,
-        		'Submitted'  => $serviceTicket->Submitted,        		
-        		'ProfitCenter'  => $serviceTicket->ProfitCenter,
-        		'ServiceStatusId' => $serviceTicket->ServiceStatusId,
-        		'ServiceTicketTypeId'  => $serviceTicket->ServiceTicketTypeId,
-        		'SignaturePath' => $serviceTicket->SignaturePath,
-        		'LastModified'  => $serviceTicket->LastModified
+            'ServiceTicketNo' => $serviceTicket->serviceTicketNo,
+            'ServiceDate'  => $serviceTicket->serviceDate,
+        		'SalesMan' => $serviceTicket->salesMan,
+        		'TruckNo'  => $serviceTicket->truckNo,
+        		'PaymentTerms' => $serviceTicket->paymentTerms,
+        		'BillToName'  => $serviceTicket->billToName,
+        		'BillToAddress' => $serviceTicket->billToAddress,
+        		'BillToCity'  => $serviceTicket->billToCity,
+        		'BillToState' => $serviceTicket->billToState,
+        		'BillToZip'  => $serviceTicket->billToZip,
+        		'BillToContact' => $serviceTicket->billToContact,
+        		'BillToEmail'  => $serviceTicket->billToEmail,
+        		'ShipToName' => $serviceTicket->shipToName,
+        		'ShipToAddress'  => $serviceTicket->shipToAddress,
+        		'ShipToCity' => $serviceTicket->shipToCity,
+        		'ShipToState'  => $serviceTicket->shipToState,
+        		'ShipToZip' => $serviceTicket->shipToZip,
+        		'ShipToContact'  => $serviceTicket->shipToContact,
+        		'PONumber' => $serviceTicket->pONumber,
+        		'Model'  => $serviceTicket->model,
+        		'Brand' => $serviceTicket->brand,
+        		'PullType'  => $serviceTicket->pullType,
+        		'DetectorType' => $serviceTicket->detectorType,
+        		'AVType'  => $serviceTicket->aVType,
+        		'ServicePeformed' => $serviceTicket->servicePeformed,
+        		'InternalNotes'  => $serviceTicket->internalNotes,
+        		'MileageCharge' => $serviceTicket->mileageCharge,
+        		'ServiceCharge'  => $serviceTicket->serviceCharge,
+        		'SalesTax' => $serviceTicket->salesTax,
+        		'LeadTechnicianNo'  => $serviceTicket->leadTechnicianNo,
+        		'CustomerNo' => $serviceTicket->customerNo,
+        		'PrintName'  => $serviceTicket->printName,
+        		'FreightCharge' => $serviceTicket->freightCharge,
+        		'Submitted'  => $serviceTicket->submitted,        		
+        		'ProfitCenter'  => $serviceTicket->profitCenter,
+        		'ServiceStatusId' => $serviceTicket->serviceStatusId,
+        		'ServiceTicketTypeId'  => $serviceTicket->serviceTicketTypeId,
+        		'SignaturePath' => $serviceTicket->signaturePath,
+        		'LastModified'  => $serviceTicket->lastModified
         );
-       
-        $id = (int)$ServiceTicket->ServiceTicketNo;
+        
+        $serviceticketid = $serviceTicket->serviceTicketNo;
         if ($id == 0) {
             $this->tableGateway->insert($data);
         } else {
-            if ($this->getServiceTicket($id)) {
-                $this->tableGateway->update($data, array('ServiceTicketNo' => $id));
+            if ($this->getServiceTicket($serviceticketid)) {
+                $this->tableGateway->update($data, array('ServiceTicketNo' => $serviceticketid));
             } else {
                 throw new \Exception('Form id does not exist');
             }

@@ -1,18 +1,53 @@
 <?php
-// module/Album/view/album/album/add.phtml:
-
-$title = 'Add new album';
+$title = 'Add new ServiceTicket';
 $this->headTitle($title);
 ?>
 <h1><?php echo $this->escapeHtml($title); ?></h1>
 <?php
 $form = $this->form;
-$form->setAttribute('action', $this->url('album', array('action' => 'add')));
+$form->setAttribute('action', $this->url('kristins', array('action' => 'add')));
 $form->prepare();
 
 echo $this->form()->openTag($form);
-echo $this->formHidden($form->get('id'));
-echo $this->formRow($form->get('title'));
-echo $this->formRow($form->get('artist'));
+echo $this->formRow($form->get('ServiceTicketNo'));
+echo $this->formRow($form->get('ServiceDate'));
+echo $this->formRow($form->get('SalesMan'));
+echo $this->formRow($form->get('TruckNo'));
+echo $this->formRow($form->get('PaymentTerms'));
+echo $this->formRow($form->get('BillToName'));
+echo $this->formRow($form->get('BillToAddress'));
+echo $this->formRow($form->get('BillToCity'));
+echo $this->formRow($form->get('BillToState'));
+echo $this->formRow($form->get('BillToZip'));
+echo $this->formRow($form->get('BillToContact'));
+echo $this->formRow($form->get('BillToEmail'));
+echo $this->formRow($form->get('ShipToName'));
+echo $this->formRow($form->get('ShipToAddress'));
+echo $this->formRow($form->get('ShipToCity'));
+echo $this->formRow($form->get('ShipToState'));
+echo $this->formRow($form->get('ShipToZip'));
+echo $this->formRow($form->get('ShipToContact'));
+echo $this->formRow($form->get('PONumber'));
+echo $this->formRow($form->get('Model'));
+echo $this->formRow($form->get('Brand'));
+echo $this->formRow($form->get('PullType'));
+echo $this->formRow($form->get('DetectorType'));
+echo $this->formRow($form->get('AVType'));
+echo $this->formRow($form->get('ServicePeformed'));
+echo $this->formRow($form->get('InternalNotes'));
+echo $this->formRow($form->get('MileageCharge'));
+echo $this->formRow($form->get('ServiceCharge'));
+echo $this->formRow($form->get('SalesTax'));
+echo $this->formRow($form->get('LeadTechnicianNo'));
+echo $this->formRow($form->get('CustomerNo'));
+echo $this->formRow($form->get('PrintName'));
+echo $this->formRow($form->get('FreightCharge'));
+echo $this->formRow($form->get('Submitted'));
+echo $this->formRow($form->get('ProfitCenter'));
+echo $this->formRow($form->get('ServiceStatusId'));
+echo $this->formRow($form->get('ServiceTicketTypeId'));
+echo $this->formRow($form->get('SignaturePath'));
+echo $this->formRow($form->get('LastModified'));
 echo $this->formSubmit($form->get('submit'));
 echo $this->form()->closeTag();
+

@@ -5,6 +5,7 @@ use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Kristins\Model\ServiceTicket;          // <-- Add this import
 use Kristins\Model\ServiceTicketTable; 
+use Kristins\Form\ServiceTicketForm;
 
 class ServiceTicketController extends AbstractActionController
 {
@@ -16,30 +17,31 @@ public function indexAction()
             'serviceticket' => $this->getServiceTicketTable()->fetchAll(),
         ));
     }
-
-   public function addAction()
+    
+    public function addAction()
     {
-        $form = new AlbumForm();
+        $form = new ServiceTicketForm();
         $form->get('submit')->setValue('Add');
-
+    
         $request = $this->getRequest();
         if ($request->isPost()) {
-            $album = new Album();
-            $form->setInputFilter($album->getInputFilter());
+            $serviceticket = new ServiceTicket();
+            //     $form->setInputFilter($serviceticket->getInputFilter());
+            
+          //  var_dump($request->getPost()); exit(); 
             $form->setData($request->getPost());
-
+    
             if ($form->isValid()) {
-                $album->exchangeArray($form->getData());
-                $this->getServiceTicketTable()->saveAlbum($album);
-
+                $serviceticket->exchangeArray($form->getData());
+                $this->getServiceTicketTable()->saveServiceTicket($serviceticket,0);
+    
                 // Redirect to list of albums
-                return $this->redirect()->toRoute('album');
+                return $this->redirect()->toRoute('kristins');
             }
         }
         return array('form' => $form);
     }
     
-
  public function editAction()
     {
         $id = (int) $this->params()->fromRoute('id', 0);
