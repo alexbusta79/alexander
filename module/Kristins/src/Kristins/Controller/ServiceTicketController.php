@@ -81,9 +81,9 @@ public function indexAction()
 
   public function deleteAction()
     {
-        $id = (int) $this->params()->fromRoute('id', 0);
+        $id = $this->params()->fromRoute('id', 0);
         if (!$id) {
-            return $this->redirect()->toRoute('album');
+            return $this->redirect()->toRoute('kristins');
         }
 
         $request = $this->getRequest();
@@ -91,17 +91,17 @@ public function indexAction()
             $del = $request->getPost('del', 'No');
 
             if ($del == 'Yes') {
-                $id = (int) $request->getPost('id');
-                $this->getServiceTicketTable()->deleteAlbum($id);
+                $id =  $request->getPost('id');
+                $this->getServiceTicketTable()->deleteServiceTicket($id);
             }
 
             // Redirect to list of albums
-            return $this->redirect()->toRoute('album');
+            return $this->redirect()->toRoute('kristins');
         }
 
         return array(
             'id'    => $id,
-            'album' => $this->getServiceTicketTable()->getAlbum($id)
+            'serviceticket' => $this->getServiceTicketTable()->getServiceTicket($id)
         );
     }
     
