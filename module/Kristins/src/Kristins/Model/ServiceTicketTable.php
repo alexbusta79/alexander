@@ -30,6 +30,7 @@ class ServiceTicketTable
 
     public function saveServiceTicket(ServiceTicket $serviceTicket,$id)
     {
+    	echo 'sono quaaaaaaaaaaaaaa'; exit();
         $data = array(
             'ServiceTicketNo' => $serviceTicket->serviceTicketNo,
             'ServiceDate'  => $serviceTicket->serviceDate,
@@ -77,6 +78,7 @@ class ServiceTicketTable
             $this->tableGateway->insert($data);
         } else {
             if ($this->getServiceTicket($serviceticketid)) {
+            	
                 $this->tableGateway->update($data, array('ServiceTicketNo' => $serviceticketid));
             } else {
                 throw new \Exception('Form id does not exist');

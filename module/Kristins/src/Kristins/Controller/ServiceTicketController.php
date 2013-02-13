@@ -1,6 +1,8 @@
 <?php
 namespace Kristins\Controller;
 
+use Kristins\Form\ServiceTicketEditForm;
+
 use Zend\Mvc\Controller\AbstractActionController;
 use Zend\View\Model\ViewModel;
 use Kristins\Model\ServiceTicket;          // <-- Add this import
@@ -44,28 +46,33 @@ public function indexAction()
     
  public function editAction()
     {
-        $id = (int) $this->params()->fromRoute('id', 0);
+    	
+        $id = $this->params()->fromRoute('id', 0);
+        $serviceticketid = $this->params()->fromRoute('serviceticketid', 0);
+        
         if (!$id) {
-            return $this->redirect()->toRoute('album', array(
+            return $this->redirect()->toRoute('kristins', array(
                 'action' => 'add'
             ));
         }
-        $album = $this->getServiceTicketTable()->getAlbum($id);
-
-        $form  = new AlbumForm();
-        $form->bind($album);
+        
+        if(!$serviceticketid){
+        $serviceticket = $this->getServiceTicketTable()->getServiceTicket($id);
+        $form  = new ServiceTicketEditForm(); 
+        $form->bind($serviceticket);
         $form->get('submit')->setAttribute('value', 'Edit');
-
+        }
+        
         $request = $this->getRequest();
         if ($request->isPost()) {
-            $form->setInputFilter($album->getInputFilter());
+            //$form->setInputFilter($serviceticket->getInputFilter());
             $form->setData($request->getPost());
 
             if ($form->isValid()) {
-                $this->getServiceTicketTable()->saveAlbum($form->getData());
+                $this->getServiceTicketTable()->saveServiceTicket($form->getData(),1);
 
                 // Redirect to list of albums
-                return $this->redirect()->toRoute('album');
+                return $this->redirect()->toRoute('kristins');
             }
         }
 
