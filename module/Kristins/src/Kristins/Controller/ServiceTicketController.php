@@ -28,9 +28,7 @@ public function indexAction()
         $request = $this->getRequest();
         if ($request->isPost()) {
             $serviceticket = new ServiceTicket();
-            //     $form->setInputFilter($serviceticket->getInputFilter());
-            
-          //  var_dump($request->getPost()); exit(); 
+            $form->setInputFilter($serviceticket->getInputFilter());
             $form->setData($request->getPost());
     
             if ($form->isValid()) {
@@ -48,26 +46,25 @@ public function indexAction()
     {
     	
         $id = $this->params()->fromRoute('id', 0);
-        $serviceticketid = $this->params()->fromRoute('serviceticketid', 0);
-        
+
         if (!$id) {
             return $this->redirect()->toRoute('kristins', array(
                 'action' => 'add'
             ));
         }
         
-        if(!$serviceticketid){
         $serviceticket = $this->getServiceTicketTable()->getServiceTicket($id);
-        $form  = new ServiceTicketEditForm(); 
+        $form  = new ServiceTicketForm(); 
         $form->bind($serviceticket);
-        $form->get('submit')->setAttribute('value', 'Edit');
-        }
-        
+        $form->get('submit')->setAttribute('value', 'Edit');   
         $request = $this->getRequest();
+        
         if ($request->isPost()) {
-            //$form->setInputFilter($serviceticket->getInputFilter());
-            $form->setData($request->getPost());
+           
+        $form->setInputFilter($serviceticket->getInputFilter());
 
+            $form->setData($request->getPost());
+    
             if ($form->isValid()) {
                 $this->getServiceTicketTable()->saveServiceTicket($form->getData(),1);
 

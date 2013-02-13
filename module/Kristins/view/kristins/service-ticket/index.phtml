@@ -32,27 +32,28 @@ foreach ($serviceticket as $values) :
 
 ?>
 <tr>
-    <td><?php echo $this->escapeHtml($values->serviceTicketNo);?></td>
-    <td><?php echo $this->escapeHtml($values->serviceDate);?></td>
-        <td><?php echo $this->escapeHtml($values->salesMan);?></td>
-        <td><?php echo $this->escapeHtml($values->truckNo);?></td>
-    <td><?php echo $this->escapeHtml($values->paymentTerms);?></td>
-        <td><?php echo $this->escapeHtml($values->billToName);?></td>
-    <td><?php echo $this->escapeHtml($values->billToAddress);?></td>
-        <td><?php echo $this->escapeHtml($values->billToCity);?></td>
-    <td><?php echo $this->escapeHtml($values->billToState);?></td>
-        <td><?php echo $this->escapeHtml($values->billToZip);?></td>
-    <td><?php echo $this->escapeHtml($values->billToContact);?></td>
-        <td><?php echo $this->escapeHtml($values->billToEmail);?></td>
-    <td><?php echo $this->escapeHtml($values->shipToName);?></td>
-        <td><?php echo $this->escapeHtml($values->shipToAddress);?></td>
-    <td><?php echo $this->escapeHtml($values->shipToCity);?></td>
+
+    <td><?php echo $this->escapeHtml($values->ServiceTicketNo);?></td>
+    <td><?php echo $this->escapeHtml($values->ServiceDate);?></td>
+        <td><?php echo $this->escapeHtml($values->SalesMan);?></td>
+        <td><?php echo $this->escapeHtml($values->TruckNo);?></td>
+    <td><?php echo $this->escapeHtml($values->PaymentTerms);?></td>
+        <td><?php echo $this->escapeHtml($values->BillToName);?></td>
+    <td><?php echo $this->escapeHtml($values->BillToAddress);?></td>
+        <td><?php echo $this->escapeHtml($values->BillToCity);?></td>
+    <td><?php echo $this->escapeHtml($values->BillToState);?></td>
+        <td><?php echo $this->escapeHtml($values->BillToZip);?></td>
+    <td><?php echo $this->escapeHtml($values->BillToContact);?></td>
+        <td><?php echo $this->escapeHtml($values->BillToEmail);?></td>
+    <td><?php echo $this->escapeHtml($values->ShipToName);?></td>
+        <td><?php echo $this->escapeHtml($values->ShipToAddress);?></td>
+    <td><?php echo $this->escapeHtml($values->ShipToCity);?></td>
     
     <td>
         <a href="<?php echo $this->url('kristins',
-            array('action'=>'edit', 'id' => $values->serviceTicketNo));?>">Edit</a>
+            array('action'=>'edit', 'id' => $values->ServiceTicketNo));?>">Edit</a>
         <a href="<?php echo $this->url('kristins',
-            array('action'=>'delete', 'id' => $values->serviceTicketNo));?>">Delete</a>
+            array('action'=>'delete', 'id' => $values->ServiceTicketNo));?>">Delete</a>
     </td>
 </tr>
 <?php endforeach; ?>

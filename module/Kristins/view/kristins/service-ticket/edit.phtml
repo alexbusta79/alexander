@@ -10,52 +10,51 @@ $form->setAttribute('action', $this->url(
     'kristins',
     array(
         'action' => 'edit',
-        'serviceticketid'     => $this->id,
     		'id' => $this->id
     )
 ));
 
 $form->prepare();
 
-echo $this->form()->openTag($form);
-echo $this->formRow($form->get('serviceTicketNo'));
-echo $this->formRow($form->get('serviceDate'));
-echo $this->formRow($form->get('salesMan'));
-echo $this->formRow($form->get('truckNo'));
-echo $this->formRow($form->get('paymentTerms'));
-echo $this->formRow($form->get('billToName'));
-echo $this->formRow($form->get('billToAddress'));
-echo $this->formRow($form->get('billToCity'));
-echo $this->formRow($form->get('billToState'));
-echo $this->formRow($form->get('billToZip'));
-echo $this->formRow($form->get('billToContact'));
-echo $this->formRow($form->get('billToEmail'));
-echo $this->formRow($form->get('shipToName'));
-echo $this->formRow($form->get('shipToAddress'));
-echo $this->formRow($form->get('shipToCity'));
-echo $this->formRow($form->get('shipToState'));
-echo $this->formRow($form->get('shipToZip'));
-echo $this->formRow($form->get('shipToContact'));
-echo $this->formRow($form->get('pONumber'));
-echo $this->formRow($form->get('model'));
-echo $this->formRow($form->get('brand'));
-echo $this->formRow($form->get('pullType'));
-echo $this->formRow($form->get('detectorType'));
-echo $this->formRow($form->get('aVType'));
-echo $this->formRow($form->get('servicePeformed'));
-echo $this->formRow($form->get('internalNotes'));
-echo $this->formRow($form->get('mileageCharge'));
-echo $this->formRow($form->get('serviceCharge'));
-echo $this->formRow($form->get('salesTax'));
-echo $this->formRow($form->get('leadTechnicianNo'));
-echo $this->formRow($form->get('customerNo'));
-echo $this->formRow($form->get('printName'));
-echo $this->formRow($form->get('freightCharge'));
-echo $this->formRow($form->get('submitted'));
-echo $this->formRow($form->get('profitCenter'));
-echo $this->formRow($form->get('serviceStatusId'));
-echo $this->formRow($form->get('serviceTicketTypeId'));
-echo $this->formRow($form->get('signaturePath'));
-echo $this->formRow($form->get('lastModified'));
+echo $this->form()->openTag($form); 
+echo $this->formRow($form->get('ServiceTicketNo'));
+echo $this->formRow($form->get('ServiceDate'));
+echo $this->formRow($form->get('SalesMan'));
+echo $this->formRow($form->get('TruckNo'));
+echo $this->formRow($form->get('PaymentTerms'));
+echo $this->formRow($form->get('BillToName'));
+echo $this->formRow($form->get('BillToAddress'));
+echo $this->formRow($form->get('BillToCity'));
+echo $this->formRow($form->get('BillToState'));
+echo $this->formRow($form->get('BillToZip'));
+echo $this->formRow($form->get('BillToContact'));
+echo $this->formRow($form->get('BillToEmail'));
+echo $this->formRow($form->get('ShipToName'));
+echo $this->formRow($form->get('ShipToAddress'));
+echo $this->formRow($form->get('ShipToCity'));
+echo $this->formRow($form->get('ShipToState'));
+echo $this->formRow($form->get('ShipToZip'));
+echo $this->formRow($form->get('ShipToContact'));
+echo $this->formRow($form->get('PONumber'));
+echo $this->formRow($form->get('Model'));
+echo $this->formRow($form->get('Brand'));
+echo $this->formRow($form->get('PullType'));
+echo $this->formRow($form->get('DetectorType'));
+echo $this->formRow($form->get('AVType'));
+echo $this->formRow($form->get('ServicePeformed'));
+echo $this->formRow($form->get('InternalNotes'));
+echo $this->formRow($form->get('MileageCharge'));
+echo $this->formRow($form->get('ServiceCharge'));
+echo $this->formRow($form->get('SalesTax'));
+echo $this->formRow($form->get('LeadTechnicianNo'));
+echo $this->formRow($form->get('CustomerNo'));
+echo $this->formRow($form->get('PrintName'));
+echo $this->formRow($form->get('FreightCharge'));
+echo $this->formRow($form->get('Submitted'));
+echo $this->formRow($form->get('ProfitCenter'));
+echo $this->formRow($form->get('ServiceStatusId'));
+echo $this->formRow($form->get('ServiceTicketTypeId'));
+echo $this->formRow($form->get('SignaturePath'));
+echo $this->formRow($form->get('LastModified'));
 echo $this->formSubmit($form->get('submit'));
 echo $this->form()->closeTag();
