@@ -75,6 +75,8 @@ class ServiceTicketTable
         $serviceticketid = $serviceTicket->ServiceTicketNo;
         if ($id == 0) {
             $this->tableGateway->insert($data);
+         //   $serviceticketid = $this->tableGateway->getLastInsertValue();
+            return $serviceticketid;
         } else {
             if ($this->getServiceTicket($serviceticketid)) {
             	
@@ -83,6 +85,8 @@ class ServiceTicketTable
                 throw new \Exception('Form id does not exist');
             }
         }
+        
+      
     }
 
     public function deleteServiceTicket($id)
